@@ -25,7 +25,6 @@ const Page = () => {
 
   const axios = useAxios();
   const router = useRouter();
-  const { token } = useUser();
 
   const generateImage = async () => {
     try {

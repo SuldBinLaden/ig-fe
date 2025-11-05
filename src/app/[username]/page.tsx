@@ -1,19 +1,16 @@
 "use client";
 
-import { redirect, useParams } from "next/navigation";
+import {  useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAxios } from "../hooks/useAxios";
 import { User } from "../types";
-import { Grid3X3, Users, Verified } from "lucide-react";
+import { Grid3X3 } from "lucide-react";
 import { Spool } from "lucide-react";
 import { Post } from "../types";
-import { PostCard } from "../components/PostCard";
 import { Home } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ProfilePostCard } from "../components/ProfilePostCard";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
 
 const Page = () => {
   const { username } = useParams();

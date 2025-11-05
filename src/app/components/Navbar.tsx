@@ -1,7 +1,6 @@
 import { Heart, LogOut, SquarePlus } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { userAgent } from "next/server";
 
 export const Navbar = () => {
   const router=useRouter()

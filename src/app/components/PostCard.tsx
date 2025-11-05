@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Heart, User, Verified } from "lucide-react";
+import { Heart, Verified } from "lucide-react";
 import { useAxios } from "../hooks/useAxios";
 import { useUser } from "../providers/UserProvider";
 import Link from "next/link";

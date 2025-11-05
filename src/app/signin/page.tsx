@@ -90,7 +90,7 @@ const SingInPage = () => {
               </Button>
             </div>
             <Button onClick={handleSignin}>Sign in</Button>
-            <Link href={"/signup"}>Don't have an account?</Link>
+            <Link href={"/signup"}>Don&apos;t have an account?</Link>
           </div>
         </CardContent>
       </Card>

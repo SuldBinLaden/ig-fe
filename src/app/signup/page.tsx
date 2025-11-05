@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {  CardContent} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeClosed } from "lucide-react";
 import { useState } from "react";
@@ -8,7 +8,6 @@ import { toast } from "sonner";
 import { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
 import { redirect, useRouter } from "next/navigation";
-import axios from "axios";
 import { useAxios } from "../hooks/useAxios";
 
 const SignUpPage = () => {
