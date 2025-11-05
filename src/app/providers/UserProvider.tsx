@@ -1,7 +1,6 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import { User } from "../types";
-import { useAxios } from "../hooks/useAxios";
 
 type UserContextType = {
   user: User | null;
@@ -21,11 +20,10 @@ export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
-  const axios = useAxios();
 
   const authenticateUser = async () => {
     setLoading(true);
-    const response = await fetch("http://localhost:5500/me", {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + "/me", {
       headers: {
         Authorization: "Bearer " + token,
       },
