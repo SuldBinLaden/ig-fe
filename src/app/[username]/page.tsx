@@ -11,6 +11,7 @@ import { ProfilePostCard } from "../components/ProfilePostCard";
 import { UserContext } from "../providers/UserProvider";
 import { Button } from "@/components/ui/button";
 import { Post } from "../types";
+import { AxiosError } from "axios";
 
 const Page = () => {
   const { username } = useParams();
@@ -24,7 +25,7 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
   const [isNotFound, setIsNotFound] = useState(false);
 
-  // Follow-related states
+
   const [isFollowing, setIsFollowing] = useState(false);
   const [followersCount, setFollowersCount] = useState(0);
   const [followingCount, setFollowingCount] = useState(0);
@@ -42,10 +43,10 @@ useEffect(() => {
     }
   };
   fetchUser();
-  // ⛔ REMOVE axios from deps
+
 }, [username]);
 
-// Fetch posts
+
 useEffect(() => {
   const fetchUserPosts = async () => {
     try {
@@ -61,7 +62,7 @@ useEffect(() => {
   fetchUserPosts();
 }, [username]);
 
-// Fetch follow stats
+
 useEffect(() => {
   const fetchStats = async () => {
     try {
@@ -76,17 +77,17 @@ useEffect(() => {
   fetchStats();
 }, [username]);
 
-  // 🔹 Handle follow/unfollow toggle
+
   const handleFollow = async () => {
   setFollowLoading(true);
   try {
     const res = await axios.post(`/users/${username}/follow`);
 
-    // Update only THEIR follower count
+
     setFollowersCount(res.data.followersCount);
     setIsFollowing(res.data.isFollowing);
 
-    // ❌ Don't update followingCount unless viewing your own profile
+
     if (loggedInUser?.username === username) {
       setFollowingCount(res.data.followingCount);
     }
@@ -99,23 +100,23 @@ useEffect(() => {
 
   return (
     <div className="flex items-center flex-col gap-4">
-      {/* Home */}
+
       <Link href={"/"}>
         <div>
           <Home />
         </div>
       </Link>
 
-      {/* Username */}
+
       <div className="flex pt-10 text-2xl font-bold gap-1">@{username}</div>
 
-      {/* Basic Info */}
+
       <div className="flex gap-1 text-gray-600">
         <div>{username}</div>
         <div>• he/him</div>
       </div>
 
-      {/* Stats */}
+
       <div className="flex gap-4 text-sm">
         <div>{posts.length} posts</div>
         <div>{followersCount} followers</div>
@@ -140,7 +141,7 @@ useEffect(() => {
   )
 )}
 
-      {/* Username label */}
+
       <div className="font-bold flex gap-1 items-center mt-2">
         <Spool /> {username}
       </div>
@@ -148,7 +149,7 @@ useEffect(() => {
       <Grid3X3 />
       <hr className="w-300" />
 
-      {/* User posts grid */}
+
       <div className="w-300 flex flex-wrap justify-between">
         {posts.map((post) => (
           <ProfilePostCard key={post._id} post={post} />
