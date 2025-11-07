@@ -135,7 +135,7 @@ const Page = () => {
         <Tabs defaultValue="upload">
           <TabsList>
             <TabsTrigger value="upload">Upload image</TabsTrigger>
-            <TabsTrigger value="generate">Generate image</TabsTrigger>
+            {/* <TabsTrigger value="generate">Generate image</TabsTrigger> */}
           </TabsList>
           <TabsContent value="upload">
             <div className="flex flex-col gap-2">
