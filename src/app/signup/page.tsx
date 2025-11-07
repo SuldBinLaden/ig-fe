@@ -24,30 +24,30 @@ const SignUpPage = () => {
     }
 
     const handlePassword = async () => {
-        const response = await fetch("http://localhost:5500/signup", {
-            headers: {
-                "Content-Type": "application/json",
-            },
-            method: "POST",
-            body: JSON.stringify({ credential, password, fullname, username }),
-        });
-        const data = await response.json();
-        if (response.ok) {
-            toast.success(data.message);
-            setToken(data.body);
-            redirect("/signin");
-        } else {
-            toast.error(data.message);
-        }
-        // const response = await axios.post("/signup", {
-        //     credential,
-        //     password,
-        //     fullname,
-        //     username,
+        // const response = await fetch("http://localhost:5500/signup", {
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     method: "POST",
+        //     body: JSON.stringify({ credential, password, fullname, username }),
         // });
-        // toast.success("signed up successfully");
-        // setToken(response.data.body);
-        // router.push("/signin");
+        // const data = await response.json();
+        // if (response.ok) {
+        //     toast.success(data.message);
+        //     setToken(data.body);
+        //     redirect("/signin");
+        // } else {
+        //     toast.error(data.message);
+        // }
+        const response = await axios.post("/signup", {
+            credential,
+            password,
+            fullname,
+            username,
+        });
+        toast.success("signed up successfully");
+        setToken(response.data.body);
+        router.push("/signin");
     };
     return (
         <div className="w-full h-screen flex justify-center items-center flex-col bg-[#142127]">

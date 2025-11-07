@@ -150,7 +150,7 @@ useEffect(() => {
       <hr className="w-300" />
 
 
-      <div className="w-300 flex flex-wrap justify-between">
+      <div className="w-300 flex flex-wrap gap-6">
         {posts.map((post) => (
           <ProfilePostCard key={post._id} post={post} />
         ))}
